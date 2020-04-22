@@ -44,7 +44,8 @@ public class StudentTableTest {
         Example example = new Example(StudentPO.class);
         Example.Criteria criteria = example.createCriteria();
         /*andCondition中的condition是db表中的字段*/
-        criteria.andCondition("age=",34);
+        criteria.andCondition("age like","%4%");//也可以实现模糊查询
+        //criteria.andLike("age", "4");//模糊查询必须加%
         List<StudentPO> studentPOS = studentServiceImpl.selectByExample(example);
         System.out.println(studentPOS);
     }
