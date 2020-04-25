@@ -12,4 +12,13 @@
         where
             name = #{name}
     </select>
+
+    <update id="updateGenderByIdInBatch">
+         UPDATE t_student
+         SET gender=#{gender}
+         WHERE id in
+         <foreach collection="id" item="item" open="(" close=")" separator=",">
+             #{item}
+         </foreach>
+    </update>
 </mapper>
