@@ -31,4 +31,11 @@ public interface StudentDao extends BaseDao<StudentPO> {
          */
         Integer updateGenderByIdInBatch(@Param("id") List<String> id,@Param("gender") String gender);
 
+        /**
+         * 根据名字模糊查询
+         * @param name
+         * @return
+         */
+        List<StudentPO> searchByName(@Param("name") String name);
+
 }

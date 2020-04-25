@@ -94,6 +94,15 @@ public class StudentTableTest {
         studentDao.updateGenderByIdInBatch(Arrays.asList("1","2"),"哈2");
     }
 
+    /**
+     * 根据名字模糊查询
+     */
+    @Test
+    public void searchByName(){
+        studentDao.searchByName("王");
+
+    }
+
 
 
 }

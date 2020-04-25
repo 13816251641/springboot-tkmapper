@@ -21,4 +21,14 @@
              #{item}
          </foreach>
     </update>
+
+    <select id="searchByName" parameterType="java.lang.String" resultType="com.lujieni.tkmapper.domain.po.StudentPO">
+        SELECT id,name,age,gender
+        FROM t_student
+        <where>
+            <if test="name!=null and name!=''">
+                AND name LIKE "%"#{name}"%"
+            </if>
+        </where>
+    </select>
 </mapper>
