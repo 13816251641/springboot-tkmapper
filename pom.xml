@@ -50,12 +50,13 @@
             <version>${pagehelp.starter.verion}</version>
         </dependency>
 
-        <!-- tkmybatis -->
-        <dependency>
-            <groupId>tk.mybatis</groupId>
-            <artifactId>mapper</artifactId>
-            <version>3.4.2</version>
-        </dependency>
+        <!-- tkmybatis
+            <dependency>
+                <groupId>tk.mybatis</groupId>
+                <artifactId>mapper</artifactId>
+                <version>3.4.2</version>
+            </dependency>
+         -->
 
         <dependency>
             <groupId>tk.mybatis</groupId>

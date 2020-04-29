@@ -100,9 +100,15 @@ public class StudentTableTest {
     @Test
     public void searchByName(){
         studentDao.searchByName("王");
-
     }
 
+    @Test
+    public void updateSelective(){
+        StudentPO po = new StudentPO();
+        po.setId(1);
+        po.setName("");
+        studentDao.updateByPrimaryKeySelective(po);
+    }
 
 
 }
