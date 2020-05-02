@@ -1,6 +1,8 @@
 package tkmapper;
 
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.lujieni.tkmapper.TkmapperApplication;
 import com.lujieni.tkmapper.dao.StudentDao;
 import com.lujieni.tkmapper.domain.po.StudentPO;
@@ -102,13 +104,35 @@ public class StudentTableTest {
         studentDao.searchByName("王");
     }
 
+    /**
+     * 因为在application.yml中设置了
+     * mapper:
+     *     not-empty: true
+     * 导致了""会被tkmapper认为是null从而updateByPrimaryKeySelective部分字段不更新
+     */
     @Test
     public void updateSelective(){
         StudentPO po = new StudentPO();
         po.setId(1);
         po.setName("");
+        po.setGender("哦1");
         studentDao.updateByPrimaryKeySelective(po);
     }
+
+
+    /**
+     * PageHelper.startPage默认会查询存在数据的条数,这个会影响
+     * 到PageInfo对象中total和pages的参数的值。很简单,total是
+     * 数据的总条数,pages是能分几页。
+     */
+    @Test
+    public void selectByPage(){
+        PageHelper.startPage(1,4);//默认就要先查询符合条数的数据的总个数
+        List<StudentPO> studentPOS = studentServiceImpl.selectAll();
+        PageInfo pageInfo = new PageInfo(studentPOS);
+        System.out.println(pageInfo);
+    }
+
 
 
 }

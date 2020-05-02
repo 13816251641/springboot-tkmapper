@@ -50,14 +50,10 @@
             <version>${pagehelp.starter.verion}</version>
         </dependency>
 
-        <!-- tkmybatis
-            <dependency>
-                <groupId>tk.mybatis</groupId>
-                <artifactId>mapper</artifactId>
-                <version>3.4.2</version>
-            </dependency>
+        <!--
+             和springboot进行集成的话这个dependency就足够了,它里面会帮
+             我们再加载别的jar
          -->
-
         <dependency>
             <groupId>tk.mybatis</groupId>
             <artifactId>mapper-spring-boot-starter</artifactId>
