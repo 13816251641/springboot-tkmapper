@@ -6,7 +6,6 @@ import com.github.pagehelper.PageInfo;
 import com.lujieni.tkmapper.TkmapperApplication;
 import com.lujieni.tkmapper.dao.StudentDao;
 import com.lujieni.tkmapper.domain.po.StudentPO;
-import com.lujieni.tkmapper.service.IStudentService;
 import com.lujieni.tkmapper.service.impl.StudentServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,7 +14,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import tk.mybatis.mapper.entity.Example;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
 
