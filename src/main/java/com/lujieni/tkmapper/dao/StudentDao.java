@@ -1,5 +1,6 @@
 package com.lujieni.tkmapper.dao;
 
+import com.lujieni.tkmapper.domain.dto.StudentDTO;
 import com.lujieni.tkmapper.mybatis.basedao.BaseDao;
 import com.lujieni.tkmapper.domain.po.StudentPO;
 import com.lujieni.tkmapper.domain.vo.StudentVO;
@@ -37,5 +38,11 @@ public interface StudentDao extends BaseDao<StudentPO> {
          * @return
          */
         List<StudentPO> searchByName(@Param("name") String name);
+
+        /**
+         * mybatis可以将db中的int自动转为String,通过ResultMap
+         * @return
+         */
+        List<StudentDTO> useResultMap();
 
 }

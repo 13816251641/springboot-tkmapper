@@ -5,6 +5,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.lujieni.tkmapper.TkmapperApplication;
 import com.lujieni.tkmapper.dao.StudentDao;
+import com.lujieni.tkmapper.domain.dto.StudentDTO;
 import com.lujieni.tkmapper.domain.po.StudentPO;
 import com.lujieni.tkmapper.service.impl.StudentServiceImpl;
 import org.junit.Test;
@@ -130,6 +131,13 @@ public class StudentTableTest {
         PageInfo pageInfo = new PageInfo(studentPOS);
         System.out.println(pageInfo);
     }
+
+    @Test
+    public void useResultMap(){
+        List<StudentDTO> studentDTOS = studentDao.useResultMap();
+        System.out.println(studentDTOS);
+    }
+    
 
 
 
