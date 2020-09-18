@@ -41,6 +41,7 @@
         </where>
     </select>
 
+    <!--db中age是int类型的-->
     <select id="useResultMap" resultMap="myResultMap">
         SELECT id,name,age,gender
         FROM t_student
