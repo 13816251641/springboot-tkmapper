@@ -15,6 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import tk.mybatis.mapper.entity.Example;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -93,6 +94,7 @@ public class StudentTableTest {
     @Test
     public void updateGenderByIdInBatch(){
         studentDao.updateGenderByIdInBatch(Arrays.asList("1","2"),"哈2");
+        //studentDao.updateGenderByIdInBatch(new ArrayList<>(),"哈2"); 这里的list的size为0的话代码会抛错
     }
 
     /**
@@ -127,7 +129,7 @@ public class StudentTableTest {
     @Test
     public void selectByPage(){
         PageHelper.startPage(1,4);//默认就要先查询符合条数的数据的总个数
-        List<StudentPO> studentPOS = studentServiceImpl.selectAll();
+        List<StudentPO> studentPOS = studentServiceImpl.selectAll();//返回的实际类是:Page
         PageInfo pageInfo = new PageInfo(studentPOS);
         System.out.println(pageInfo);
     }
