@@ -80,5 +80,4 @@ public interface ISelectService<T> {
     List<T> selectByExampleAndRowBounds(Object example, RowBounds rowBounds);
 
 
-
 }
