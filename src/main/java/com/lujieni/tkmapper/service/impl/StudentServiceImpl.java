@@ -14,6 +14,6 @@ public class StudentServiceImpl extends AbstractBaseService<StudentDao,StudentPO
 
     @Override
     public List<StudentVO> findStudentByName() {
-        return dao.findStudentByName("陆捷旎");
+        return super.dao.findStudentByName("陆捷旎");
     }
 }

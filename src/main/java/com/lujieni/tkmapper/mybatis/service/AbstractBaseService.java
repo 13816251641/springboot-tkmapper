@@ -12,11 +12,12 @@ import java.util.List;
  * <D extends BaseDao<T>, T> 中的最后一个T一定要
  * @param <D>
  * @param <T>
+ * <D extends BaseDao<T>,T>
  */
-public abstract class AbstractBaseService<D extends BaseDao<T>, T> implements IBaseService<T> {
+public class AbstractBaseService<D extends BaseDao<T>, T> implements IBaseService<T> {
 
     /*
-        @Autowired
+        @Autowired必不可少
         这样写也可以,但是StudentDao的自定义方法就要强转了
         protected BaseDao dao;
     */
