@@ -14,6 +14,7 @@ public class StudentServiceImpl extends AbstractBaseService<StudentDao,StudentPO
 
     @Override
     public List<StudentVO> findStudentByName() {
+        //super.deleteByPrimaryKey(1);
         return super.dao.findStudentByName("陆捷旎");
     }
 }
