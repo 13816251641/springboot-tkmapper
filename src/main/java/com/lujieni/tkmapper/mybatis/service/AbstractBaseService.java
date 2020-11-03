@@ -14,7 +14,10 @@ import java.util.List;
  * @param <T>
  * <D extends BaseDao<T>,T>
  *
- *  AbstractBaseService<D extends BaseDao<T>,T> implements IBaseService<T>
+ *
+ *
+ *
+ *
  */
 public class AbstractBaseService<D extends BaseDao<T>, T> implements IBaseService<T> {
 
