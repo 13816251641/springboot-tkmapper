@@ -9,8 +9,6 @@ import javax.persistence.Id;
 @Data
 public class BasicEntity {
     @Id
-    @Column(
-            name = "id"
-    )
+    @Column(name = "id")
     private Integer id;
 }
