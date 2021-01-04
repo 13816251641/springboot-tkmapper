@@ -30,4 +30,12 @@ public class PersonServiceImpl extends AbstractBaseService<PersonDao, PersonPO> 
         List<PersonPO> list = super.dao.queryPersonByName(name);
         return list;
     }
+
+    @Override
+    public List<PersonPO> queryPerson() {
+        PersonPO personPO = new PersonPO();
+        //personPO.setName("陆哥哥");
+        personPO.setName("");
+        return super.dao.select(personPO);
+    }
 }

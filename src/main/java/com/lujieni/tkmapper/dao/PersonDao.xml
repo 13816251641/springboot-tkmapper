@@ -4,10 +4,13 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lujieni.tkmapper.dao.PersonDao">
 
-    <!--使用resultType要保证sql中的返回字段和po中的严格一致,它不会帮你把下划线转驼峰-->
+    <!--
+        使用resultType要保证sql中的返回字段和po中的严格一致,它不会帮你把下划线转驼峰
+        要么你sql中写别名,要么使用resultMap指定mapping
+     -->
     <select id="queryPersonByName" resultType="com.lujieni.tkmapper.domain.po.PersonPO" parameterType="java.lang.String">
         SELECT
-           *
+           id,my_name name,my_age myAge,create_time createTime,modify_time modifyTime
         from t_person
         where
             my_name = #{name}

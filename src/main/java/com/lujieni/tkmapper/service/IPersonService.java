@@ -7,4 +7,6 @@ import java.util.List;
 public interface IPersonService {
 
     List<PersonPO> queryPersonByName(String name);
+
+    List<PersonPO> queryPerson();
 }

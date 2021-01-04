@@ -26,4 +26,9 @@ public class PersonController {
     public List<PersonPO> queryPersonByName(String name){
         return iPersonService.queryPersonByName(name);
     }
+
+    @GetMapping("/query-person")
+    public List<PersonPO> queryPerson(){
+        return iPersonService.queryPerson();
+    }
 }
