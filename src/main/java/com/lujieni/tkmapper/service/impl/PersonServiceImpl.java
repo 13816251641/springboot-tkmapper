@@ -28,6 +28,7 @@ public class PersonServiceImpl extends AbstractBaseService<PersonDao, PersonPO> 
         List<PersonPO> list = super.selectByExample(example);
         return list;*/
         List<PersonPO> list = super.dao.queryPersonByName(name);
+
         return list;
     }
 

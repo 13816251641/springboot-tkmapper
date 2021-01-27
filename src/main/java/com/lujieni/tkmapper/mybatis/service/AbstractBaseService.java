@@ -19,7 +19,7 @@ import java.util.List;
  * <D extends BaseDao<T>,T>
  *
  */
-public class AbstractBaseService<D extends BaseDao<T>, T> implements IBaseService<T> {
+public class AbstractBaseService<D extends BaseDao<T>,T> implements IBaseService<T> {
 
     /*
         @Autowired必不可少
@@ -30,6 +30,7 @@ public class AbstractBaseService<D extends BaseDao<T>, T> implements IBaseServic
     protected D dao;
 
     @Transactional
+    @Override
     public int save(T record) {
         return dao.insert(record);
     }
