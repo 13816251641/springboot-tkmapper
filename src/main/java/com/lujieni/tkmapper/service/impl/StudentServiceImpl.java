@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class StudentServiceImpl extends AbstractBaseService<StudentDao,StudentPO> implements IStudentService {
+public class StudentServiceImpl extends AbstractBaseService<StudentPO,StudentDao> implements IStudentService {
 
     @Override
     public List<StudentVO> findStudentByName() {

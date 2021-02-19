@@ -19,7 +19,7 @@ import java.util.List;
  * <D extends BaseDao<T>,T>
  *
  */
-public class AbstractBaseService<D extends BaseDao<T>,T> implements IBaseService<T> {
+public class AbstractBaseService< T, D extends BaseDao<T> > implements IBaseService<T> {
 
     /*
         @Autowired必不可少

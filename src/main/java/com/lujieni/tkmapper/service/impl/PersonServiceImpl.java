@@ -1,7 +1,10 @@
 package com.lujieni.tkmapper.service.impl;
 
 import com.lujieni.tkmapper.dao.PersonDao;
+import com.lujieni.tkmapper.dao.StudentDao;
 import com.lujieni.tkmapper.domain.po.PersonPO;
+import com.lujieni.tkmapper.domain.po.StudentPO;
+import com.lujieni.tkmapper.mybatis.basedao.BaseDao;
 import com.lujieni.tkmapper.mybatis.service.AbstractBaseService;
 import com.lujieni.tkmapper.service.IPersonService;
 import org.springframework.stereotype.Service;
@@ -18,17 +21,18 @@ import java.util.List;
  * @Version: 1.0
  */
 @Service
-public class PersonServiceImpl extends AbstractBaseService<PersonDao, PersonPO> implements IPersonService {
+public class PersonServiceImpl extends AbstractBaseService<PersonPO,PersonDao> implements IPersonService {
 
     @Override
     public List<PersonPO> queryPersonByName(String name) {
-     /*   Example example = new Example(PersonPO.class);
-        Example.Criteria criteria = example.createCriteria();
-        criteria.andEqualTo("name",name);
-        List<PersonPO> list = super.selectByExample(example);
-        return list;*/
+        /*
+            Example example = new Example(PersonPO.class);
+            Example.Criteria criteria = example.createCriteria();
+            criteria.andEqualTo("name",name);
+            List<PersonPO> list = super.selectByExample(example);
+            return list;
+        */
         List<PersonPO> list = super.dao.queryPersonByName(name);
-
         return list;
     }
 
