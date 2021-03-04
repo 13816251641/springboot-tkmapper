@@ -1,12 +1,12 @@
 package com.lujieni.tkmapper.controller;
 
+import com.lujieni.tkmapper.common.RequestDTO;
 import com.lujieni.tkmapper.domain.po.PersonPO;
 import com.lujieni.tkmapper.service.IPersonService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -22,9 +22,9 @@ public class PersonController {
     @Autowired
     private IPersonService iPersonService;
 
-    @GetMapping("/query-person-by-name")
-    public List<PersonPO> queryPersonByName(String name){
-        return iPersonService.queryPersonByName(name);
+    @PostMapping("/query-person-by-name")
+    public List<PersonPO> queryPersonByName(@Valid @RequestBody RequestDTO<String> requestDTO){
+        return iPersonService.queryPersonByName(requestDTO.getData());
     }
 
     @GetMapping("/query-person")
