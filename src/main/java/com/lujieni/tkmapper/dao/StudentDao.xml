@@ -22,15 +22,17 @@
             name = #{name}
     </select>
 
+    <!--collection必须和list的名字相一致-->
     <update id="updateGenderByIdInBatch">
          UPDATE t_student
-         SET gender=#{gender}
+         SET gender = #{gender}
          WHERE id in
          <foreach collection="id" item="item" open="(" close=")" separator=",">
              #{item}
          </foreach>
     </update>
 
+    <!-- 试试'%'不可以!!! -->
     <select id="searchByName" parameterType="java.lang.String" resultType="com.lujieni.tkmapper.domain.po.StudentPO">
         SELECT id,name,age,gender
         FROM t_student
@@ -45,5 +47,17 @@
     <select id="useResultMap" resultMap="myResultMap">
         SELECT id,name,age,gender
         FROM t_student
+    </select>
+
+
+    <!--对象中存在list,遍历list要使用a.b的形式!-->
+    <select id="queryStudentById" parameterType="com.lujieni.tkmapper.common.RequestDTO" resultType="com.lujieni.tkmapper.domain.vo.StudentVO">
+        select id,name,age,gender from t_student
+        <if test="dto.data != null and dto.data.size > 0">
+            where id in
+            <foreach collection="dto.data" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+        </if>
     </select>
 </mapper>

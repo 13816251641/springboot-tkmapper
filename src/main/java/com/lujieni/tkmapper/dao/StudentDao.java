@@ -1,11 +1,13 @@
 package com.lujieni.tkmapper.dao;
 
+import com.lujieni.tkmapper.common.RequestDTO;
 import com.lujieni.tkmapper.domain.dto.StudentDTO;
 import com.lujieni.tkmapper.mybatis.basedao.BaseDao;
 import com.lujieni.tkmapper.domain.po.StudentPO;
 import com.lujieni.tkmapper.domain.vo.StudentVO;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -33,7 +35,7 @@ public interface StudentDao extends BaseDao<StudentPO> {
         Integer updateGenderByIdInBatch(@Param("id") List<String> id,@Param("gender") String gender);
 
         /**
-         * 根据名字模糊查询
+         * 根据名字模糊查询,sql中只能用"%",不能用'%'
          * @param name
          * @return
          */
@@ -44,5 +46,15 @@ public interface StudentDao extends BaseDao<StudentPO> {
          * @return
          */
         List<StudentDTO> useResultMap();
+
+        /**
+         * @Description: po中有list,如何使用呢
+         * @param
+         * @return:
+         * @Author: lujieni
+         * @Date: 2021/3/25
+         */
+        List<StudentVO> queryStudentById(@Param("dto") RequestDTO<List<Integer>> requestDTO);
+
 
 }

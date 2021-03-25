@@ -1,5 +1,6 @@
 package com.lujieni.tkmapper.controller;
 
+import com.lujieni.tkmapper.common.RequestDTO;
 import com.lujieni.tkmapper.domain.vo.StudentVO;
 import com.lujieni.tkmapper.service.IStudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,5 @@ public class StudentController {
     public List<StudentVO> findStudentByName(){
         return studentService.findStudentByName();
     }
-
-
 
 }

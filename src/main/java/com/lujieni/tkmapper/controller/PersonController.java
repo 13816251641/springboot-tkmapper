@@ -23,7 +23,7 @@ import java.util.List;
 @RestController
 public class PersonController {
 
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
+    private static final Logger logger = LoggerFactory.getLogger(PersonController.class);
 
     @Autowired
     private IPersonService iPersonService;

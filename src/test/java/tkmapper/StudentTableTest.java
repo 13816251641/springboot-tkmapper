@@ -4,9 +4,11 @@ package tkmapper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.lujieni.tkmapper.TkmapperApplication;
+import com.lujieni.tkmapper.common.RequestDTO;
 import com.lujieni.tkmapper.dao.StudentDao;
 import com.lujieni.tkmapper.domain.dto.StudentDTO;
 import com.lujieni.tkmapper.domain.po.StudentPO;
+import com.lujieni.tkmapper.domain.vo.StudentVO;
 import com.lujieni.tkmapper.service.impl.StudentServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -98,7 +100,7 @@ public class StudentTableTest {
     }
 
     /**
-     * 根据名字模糊查询
+     * 根据名字模糊查询,sql中只能用"%",不能用'%'
      */
     @Test
     public void searchByName(){
@@ -137,6 +139,14 @@ public class StudentTableTest {
     @Test
     public void useResultMap(){
         List<StudentDTO> studentDTOS = studentDao.useResultMap();
+        System.out.println(studentDTOS);
+    }
+
+    @Test
+    public void a4(){
+        RequestDTO<List<Integer>> requestDTO = new RequestDTO<>();
+        requestDTO.setData(Arrays.asList(16,31));
+        List<StudentVO> studentDTOS = studentDao.queryStudentById(requestDTO);
         System.out.println(studentDTOS);
     }
     
